@@ -1,7 +1,7 @@
 require 'date'
 
 class Item
-  def initialize(id, publish_date, archived)
+  def initialize(id, publish_date, _archived)
     @id = id
     @publish_date = publish_date
     @archived = false
