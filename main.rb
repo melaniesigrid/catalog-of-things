@@ -17,7 +17,7 @@ end
 def main
   app = App.new
   option = 0
-  while option != 13
+  while option != 'Exit'
     display_menu
     print '[Input the number]: '
     option = app.select_option
