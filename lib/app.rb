@@ -85,4 +85,9 @@ class App
     @authors.each_with_index.each { |e, i| puts "#{i}) #{e.first_name} #{e.last_name}" }
     puts
   end
+
+  def store_data
+    File.write('data/authors.json', JSON.generate(@authors))
+    File.write('data/games.json', JSON.generate(@games))
+  end
 end
