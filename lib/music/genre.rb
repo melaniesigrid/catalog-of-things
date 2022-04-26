@@ -1,6 +1,5 @@
 class Genre
-  attr_reader :items
-  attr_accessor :name, :id
+  attr_accessor :name, :id, :items
 
   def initialize(name, id)
     @name = name
