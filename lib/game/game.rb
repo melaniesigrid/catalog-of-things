@@ -1,4 +1,4 @@
-require_relative './item'
+require_relative '../item'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
@@ -12,5 +12,17 @@ class Game < Item
   def can_be_archived?
     years_from_last_played = Date.new.year.to_i - @last_played_at.slice(0, 4).to_i
     super && years_from_last_played > 2
+  end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'multiplayer' => @multiplayer,
+      'last_played_at' => @last_played_at,
+      'publish_date' => @publish_date,
+      'archived' => @archived,
+      'author' => @author.id
+    }.to_json(*args)
   end
 end
