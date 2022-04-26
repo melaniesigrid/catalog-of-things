@@ -1,7 +1,8 @@
 require 'date'
 
 class Item
-  attr_accessor :genre, :label, :author
+  attr_accessor :genre, :label
+  attr_reader :author
 
   def initialize(id, publish_date, _archived)
     @id = id
@@ -17,5 +18,10 @@ class Item
 
   def move_to_archive
     @archived = true if can_be_archived?
+  end
+
+  def author=(author)
+    @author = author
+    author.items << self unless author.items.include? self
   end
 end
