@@ -16,14 +16,12 @@ end
 
 def main
   app = App.new
-  app.load_files
   option = 0
   while option != 'Exit'
     display_menu
     print '[Input the number]: '
     option = app.select_option
   end
-  app.store_data
   puts "Thank you for using this app!\n\n"
 end
 
