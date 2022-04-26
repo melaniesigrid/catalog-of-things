@@ -6,7 +6,7 @@ class Book < Item
   def initialize(publisher, cover_state, publish_date, id: random.rand(1..1000), archived: false)
     super(publish_date, id: id, archived: archived)
     @publisher = publisher
-    @cover_state = cover_date
+    @cover_state = cover_state
   end
 
   def can_be_archived?
