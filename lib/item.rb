@@ -10,7 +10,7 @@ class Item
   end
 
   def can_be_archived?
-    current_date = Date.today.year
+    current_year = Date.today.year
     date = Date._parse(@publish_date)
     publish_year = current_year - date[:year]
     publish_year > 10
@@ -20,8 +20,8 @@ class Item
     @archived = true if can_be_archived?
   end
 
-  def author=(author)
-    @author = author
-    author.items << self unless author.items.include? self
-  end
+  # def author=(author)
+  #   @author = author
+  #   author.items << self unless author.items.include? self
+  # end
 end
