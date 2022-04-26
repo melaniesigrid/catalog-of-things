@@ -27,4 +27,34 @@ module GameAuthorManager
     author = @authors[option.to_i - 1] unless option.to_i.zero?
     author
   end
+
+  def load_authors_json
+    if File.exist?('data/authors.json')
+      authors_arr = JSON.parse(File.read('data/authors.json'))
+      authors_arr.each do |obj|
+        @authors << Author.new(obj['first_name'], obj['last_name'], id: obj['id'])
+      end
+    else
+      []
+    end
+  end
+
+  def load_games_json
+    if File.exist?('data/games.json')
+      items_arr = JSON.parse(File.read('data/games.json'))
+      items_arr.each do |obj|
+        game = Game.new(
+          obj['multiplayer'],
+          obj['last_played_at'],
+          obj['publish_date'],
+          id: obj['id'],
+          archived: obj['archived']
+        )
+        game.author = @authors.find { |e| e.id == obj['author'] }
+        @games << game
+      end
+    else
+      []
+    end
+  end
 end
