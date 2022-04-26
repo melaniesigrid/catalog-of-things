@@ -78,4 +78,11 @@ class App
       puts "#{i}) Publish date: #{e.publish_date}, Author: #{author}, #{prop_game}"
     end
   end
+
+  def list_authors
+    puts 'No author registered yet' if @authors.empty?
+    puts "\n------ AVAILABLE AUTHORS ------" unless @authors.empty?
+    @authors.each_with_index.each { |e, i| puts "#{i}) #{e.first_name} #{e.last_name}" }
+    puts
+  end
 end
