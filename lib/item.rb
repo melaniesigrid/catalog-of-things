@@ -1,19 +1,19 @@
 require 'date'
 
 class Item
-  attr_accessor :genre, :label
-  attr_reader :author
+  attr_accessor :id, :publish_date, :archived, :genre, :author, :label
 
-  def initialize(id, publish_date, _archived)
+  def initialize(id, publish_date, archived)
     @id = id
     @publish_date = publish_date
-    @archived = false
+    @archived = archived
   end
 
   def can_be_archived?
-    current_date = Date.today.year.to_i
-    year = @publish_date.slice(0, 4).to_i
-    current_date - year > 10
+    current_date = Date.today.year
+    date = Date._parse(@publish_date)
+    publish_year = current_year - date[:year]
+    publish_year > 10
   end
 
   def move_to_archive
