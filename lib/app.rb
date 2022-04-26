@@ -90,4 +90,9 @@ class App
     File.write('data/authors.json', JSON.generate(@authors))
     File.write('data/games.json', JSON.generate(@games))
   end
+
+  def load_files
+    load_authors_json
+    load_games_json
+  end
 end
