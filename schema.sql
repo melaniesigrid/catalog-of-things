@@ -1,19 +1,20 @@
-CREATE TABLE author (
-  id  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  first_name  VARCHAR(50) NOT NULL,
-  last_name  VARCHAR(50) NOT NULL,
-)
-
 CREATE TABLE item (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   publish_date  DATE  NOT NULL,
   archived BOOLEAN NOT NULL,
   author_id INT,
+  label_id INT,
 
   CONSTRAINT fk_author
       FOREIGN KEY (author_id)
       REFERENCES author (id)
       ON DELETE SET NULL
+)
+
+CREATE TABLE author (
+  id  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  first_name  VARCHAR(50) NOT NULL,
+  last_name  VARCHAR(50) NOT NULL,
 )
 
 CREATE TABLE game (

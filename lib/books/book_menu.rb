@@ -54,7 +54,7 @@ class BookMenu
 
   def list_labels
     @list_labels.each do |label|
-      puts "ID: #{label.id}-) Title: #{label.title} Color: #{label.color}"
+      puts "ID: #{label.id} Title: #{label.title} Color: #{label.color}"
     end
   end
 

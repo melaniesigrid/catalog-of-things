@@ -25,7 +25,7 @@ class App
     when 7, 8, 9
       add_tasks(choice)
     when 10
-      save_data
+      save_data && exit
     else
       puts 'Unknown option, please select from the options menu.'
     end
