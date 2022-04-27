@@ -1,0 +1,29 @@
+CREATE TABLE author (
+  id  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  first_name  VARCHAR(50) NOT NULL,
+  last_name  VARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE item (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  publish_date  DATE  NOT NULL,
+  archived BOOLEAN NOT NULL,
+  author_id INT,
+
+  CONSTRAINT fk_author
+      FOREIGN KEY (author_id)
+      REFERENCES author (id)
+      ON DELETE SET NULL
+)
+
+CREATE TABLE game (
+  id  INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  multiplayer BOOLEAN NOT NULL,
+  last_played_at DATE NOT NULL
+  item_id INT NOT NULL,
+
+  CONSTRAINT fk_item
+      FOREIGN KEY (item_id)
+      REFERENCES item (id)
+      ON DELETE CASCADE
+)
