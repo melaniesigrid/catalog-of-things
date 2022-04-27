@@ -1,0 +1,30 @@
+[
+  {
+    "genre": "Pop",
+    "published": "2022/10/10",
+    "archived": "Y",
+    "spotify": "Y",
+    "id": 717
+  },
+  {
+    "genre": "Cumbia",
+    "published": "2022/01/01",
+    "archived": "N",
+    "spotify": "N",
+    "id": 284
+  },
+  {
+    "genre": "Baladas",
+    "published": "2022/10/10",
+    "archived": "Y",
+    "spotify": "Y",
+    "id": 470
+  },
+  {
+    "genre": "Salsa",
+    "published": "2021-01-10",
+    "archived": "N",
+    "spotify": "Y",
+    "id": 493
+  }
+]
