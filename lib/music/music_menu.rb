@@ -1,14 +1,16 @@
+require 'json'
+require 'fileutils'
+
 require_relative 'genre'
 require_relative 'music_album'
-require_relative 'music_helpers'
 
-class MusicApp
-  include MusicHelpers
+class MusicMenu
   attr_accessor :list_genres, :list_albums
 
   def initialize
     @list_genres = []
     @list_albums = []
+    load_json_files
   end
 
   def album_menu
@@ -19,7 +21,7 @@ class MusicApp
     archived = gets.chomp.upcase
     puts 'On spotify? [Y/N]'
     spotify = gets.chomp.upcase
-    album = MusicAlbum.new(album_name, date, archived, spotify)
+    album = MusicAlbum.new(date, archived, spotify)
     genre = genre_menu
     genre.add_item(album)
     puts 'Album created succesfully'
@@ -35,11 +37,40 @@ class MusicApp
     genre
   end
 
-  MusicHelpers.write_to_json
+  def print_albums
+    @list_albums.each do |album|
+      puts "ID: #{album.id}-) publication date: #{album.publish_date} "
+    end
+  end
 
-  MusicHelpers.load_from_json
+  def print_genres
+    @list_genres.each do |genre|
+      puts "ID: #{genre.id}-) genre: #{genre.name}"
+    end
+  end
 
-  MusicHelpers.print_albums
+  def write_to_json
+    arr = []
+    @list_albums.each do |album|
+      arr.push({ genre: album.genre.name, published: album.publish_date,
+                 archived: album.archived, spotify: album.on_spotify, id: album.id })
+    end
+    FileUtils.touch('music.json') unless File.exist?('music.json')
+    File.write('music.json', JSON.pretty_generate(arr))
+  end
 
-  MusicHelpers.print_genres
+  def load_json_files
+    return unless File.exist?('music.json')
+
+    file = JSON.parse(File.read('music.json'))
+    file.each do |data|
+      album = MusicAlbum.new(data['published'], data['archived'],
+                             data['spotify'], id: data['id'])
+      genre = Genre.new(data['genre'])
+      album.genre = genre
+      genre.add_item(album)
+      @list_albums.push(album)
+      @list_genres.push(genre)
+    end
+  end
 end

@@ -1,4 +1,14 @@
+require_relative './music/music_menu'
+
 class App
+  def initialize
+    @music_menu = MusicMenu.new
+  end
+
+  def save_data
+    @music_menu.write_to_json
+  end
+
   def select_option
     choice = gets.chomp.strip.to_i
     case choice
@@ -7,7 +17,7 @@ class App
     when 7, 8, 9
       add_tasks(choice)
     when 10
-      'Exit'
+      save_data
     else
       puts 'Unknown option, please select from the options menu.'
     end
@@ -17,12 +27,10 @@ class App
     case choice
     when 1
       list_books
-    when 2
-      list_music_albums
+    when 2 then @music_menu.print_albums
     when 3
       list_games
-    when 4
-      list_genres
+    when 4 then @music_menu.print_genres
     when 5
       list_labels
     when 6
@@ -34,8 +42,7 @@ class App
     case choice
     when 7
       add_book
-    when 8
-      add_music_album
+    when 8 then @music_menu.album_menu
     when 9
       add_game
     end
