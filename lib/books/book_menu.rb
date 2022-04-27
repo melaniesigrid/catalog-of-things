@@ -16,7 +16,7 @@ class BookMenu
     puts 'What is the publisher?'
     publisher = gets.chomp.strip
     puts 'Is the state of the cover good or bad? Enter 1 for good and 2 for bad.'
-    opt = {'1': 'good', '2': 'bad'}
+    opt = { '1': 'good', '2': 'bad' }
     cover_state = opt[gets.chomp.strip]
     puts 'Please enter the date it was published in the following format: [YYY-MM-DD]'
     publish_date = gets.chomp.strip

@@ -38,4 +38,5 @@ module BookHelpers
     @list_labels.each do |genre|
       puts "ID: #{label.id}-) Title: #{label.title} Color: #{label.color}"
     end
+  end
 end
