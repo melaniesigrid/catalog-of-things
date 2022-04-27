@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Harry Potter",
+    "label_color": "Blue",
+    "label_id": 999,
+    "publisher": "Scholastic",
+    "cover_state": "good",
+    "publish_date": "2008-07-12",
+    "archived": false,
+    "id": 262
+  }
+]

@@ -28,7 +28,6 @@ module GameHelpers
       @list_authors.find { |e| e.id == obj['author'] }.add_item(game)
       @list_games << game
     end
-    @list_games.each { |e| puts e.archived }
   end
 
   def validates_date
