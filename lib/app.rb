@@ -1,9 +1,8 @@
 require_relative './music/music_menu'
 
-require_relative './books/book_menu.rb'
+require_relative './books/book_menu'
 
 require_relative './game/game_menu'
-
 
 class App
   def initialize

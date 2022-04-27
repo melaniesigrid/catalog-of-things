@@ -5,8 +5,6 @@ require_relative 'book'
 require_relative 'label'
 
 class BookMenu
-  attr_accessor :list_books, :list_labels
-
   def initialize
     @list_books = []
     @list_labels = []
@@ -14,19 +12,18 @@ class BookMenu
   end
 
   def add_book
-    puts 'Add a new Book'
-    puts 'What is the publisher?'
+    puts 'Add a new Book, please enter the publisher'
     publisher = gets.chomp.strip
-
     puts 'Would you like to archive it? Y/N'
     archived = gets.chomp.downcase == 'y'
-
     puts 'Is the state of the cover good or bad? Enter 1 for good and 2 for bad.'
     input = gets.chomp.strip
-    if input == '1' then cover_state = 'good'
-    else cover_state = 'bad'
-    end
-
+    cover_state = case input
+                  when '1'
+                    'good'
+                  when '2'
+                    'bad'
+                  end
     puts 'Please enter the date it was published in the following format: YYYY-MM-DD'
     publish_date = gets.chomp.strip
     book = Book.new(publisher, cover_state, publish_date, archived)
@@ -49,7 +46,9 @@ class BookMenu
 
   def list_books
     @list_books.each do |book|
-      puts "ID: #{book.id}-)  Publisher: #{book.publisher} Publication date: #{book.publish_date} Cover state: #{book.cover_state}"
+      puts "ID: #{book.id}   Publisher: #{book.publisher}
+          Publication date: #{book.publish_date}
+          Cover state: #{book.cover_state}"
     end
   end
 
