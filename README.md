@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Cataogue Of Things
+# Catalog Of Things
 
-> Catalogue of Things is a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below:
+> Catalog of Things is a console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below:
 
 ![screenshot](./catalog_of_my_things.png)
 
@@ -51,14 +51,14 @@ $ rspec
 
 👤 **Gabriela Sanchez**
 
-- GitHub: [@githubhandle](https://github.com/gabyse1)
-- Twitter: [@twitterhandle](https://twitter.com/gabyse0)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/gabyse/)
+- GitHub: [@gabyse1](https://github.com/gabyse1)
+- LinkedIn: [gabyse](https://www.linkedin.com/in/gabyse/)
+- Twitter: [@gabyse0](https://twitter.com/gabyse0)
 
 👤 **Fabrizio Garcia**
 
-- GitHub: [@githubhandle](https://github.com/fabgrel10)
-- Twitter: [@twitterhandle](https://twitter.com/fabgrel10)
+- GitHub: [@fabgrel10](https://github.com/fabgrel10)
+- Twitter: [@fabgrel10](https://twitter.com/fabgrel10)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fabgrel10/)
 
 ## 🤝 Contributing
@@ -73,9 +73,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Hat tip to our code reviewers and partners at Microverse
 
 ## 📝 License
 
