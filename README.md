@@ -7,7 +7,7 @@
 ![screenshot](./catalog_of_my_things.png)
 
 ## Live Video
-You can check our video presentation of the project ![here](https://youtu.be/WV8CIaeEZ9k)
+You can check our video presentation of the project [here](https://youtu.be/WV8CIaeEZ9k)
 
 ## Getting Started
 
